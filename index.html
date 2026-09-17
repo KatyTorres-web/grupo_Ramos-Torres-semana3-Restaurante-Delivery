@@ -184,6 +184,77 @@
         </div>
       </div>
     </nav>
+    <!-- ===== Paso 3: Hero Section (tipografía fluida + composición) ===== -->
+
+    <!-- Tailwind: bg-gradient-to-r para el fondo, max-w-3xl y text-balance para el texto -->
+
+    <header
+      id="inicio"
+      class="bg-gradient-to-r from-pino to-[#1f3a2e] text-white"
+    >
+      <div class="container py-5">
+        <div class="row align-items-center g-5 py-lg-4">
+          <div class="col-lg-7">
+            <span
+              class="badge rounded-pill mb-3 px-3 py-2"
+              style="background-color: var(--aji); color: var(--tinta)"
+            >
+              Cocina de casa · Delivery en 40 min
+            </span>
+
+            <!-- display-3 = tipografía fluida de Bootstrap; text-balance = mejor reparto de líneas -->
+            <h1 class="display-3 fw-bold text-balance mb-3 font-display">
+              Sabores de casa, servidos a tu puerta
+            </h1>
+
+            <!-- lead de Bootstrap + max-w-3xl de Tailwind para limitar el ancho de lectura -->
+            <p class="lead max-w-3xl text-balance mb-4" style="color: #e9e3d5">
+              Platos peruanos preparados al momento con ingredientes frescos del
+              valle. Reserva tu mesa o pide delivery: el mismo sabor, esté donde
+              estés.
+            </p>
+
+            <!-- d-flex + gap-3: layout de los botones (Call to Action) -->
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#menu" class="btn btn-aji btn-lg rounded-pill px-4">
+                Ver el menú
+              </a>
+
+              <a
+                href="#reservas"
+                class="btn btn-outline-light btn-lg rounded-pill px-4"
+              >
+                Reservar mesa
+              </a>
+            </div>
+
+            <div class="d-flex flex-wrap gap-4 mt-4" style="color: #cfd8cf">
+              <div>
+                <strong class="fs-4 font-display d-block"> +120 </strong>
+                platos preparados al día
+              </div>
+
+              <div>
+                <strong class="fs-4 font-display d-block"> 4.8★ </strong>
+                valoración de clientes
+              </div>
+
+              <div>
+                <strong class="fs-4 font-display d-block"> 7 días </strong>
+                abiertos a la semana
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <!-- "Plato" decorativo hecho con CSS (reemplazable por una foto real) -->
+            <div class="plato mx-auto max-w-3xl" style="max-width: 360px">
+              <span aria-hidden="true">🍛</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <!-- Bootstrap 5.3.3 (JS bundle: incluye Popper para dropdown y navbar) -->
 
     <script
