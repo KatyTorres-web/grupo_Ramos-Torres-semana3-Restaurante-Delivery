@@ -1,0 +1,90 @@
+/* CSS local propio (sin @import) */
+
+:root {
+    --pino: #14261F;
+    --crema: #FBF6EC;
+    --aji: #E4A11B;
+    --rocoto: #B4321E;
+    --tinta: #23201A;
+}
+
+body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--tinta);
+    background-color: var(--crema);
+}
+
+h1,
+h2,
+h3,
+.font-display {
+    font-family: 'Fraunces', Georgia, serif;
+}
+
+/* Panel decorativo del hero: un "plato" hecho con CSS */
+.plato {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            #fff 0 42%,
+            #f0e7d4 42% 58%,
+            #e7dcc3 58% 60%,
+            transparent 60%
+        );
+    display: grid;
+    place-items: center;
+    box-shadow: 0 30px 60px -25px rgba(20, 38, 31, .55);
+}
+
+.plato span {
+    font-size: clamp(3rem, 12vw, 7rem);
+    line-height: 1;
+}
+
+/* Enlace de navbar con subrayado propio del acento */
+.nav-link.link-sumaq {
+    color: var(--pino);
+    font-weight: 500;
+}
+
+.nav-link.link-sumaq:hover,
+.nav-link.link-sumaq:focus {
+    color: var(--rocoto);
+}
+
+/* Foco visible reforzado para accesibilidad */
+a:focus-visible,
+button:focus-visible,
+.form-control:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--aji);
+    outline-offset: 2px;
+}
+
+.btn-aji {
+    background-color: var(--aji);
+    color: var(--tinta);
+    font-weight: 700;
+    border: none;
+}
+
+.btn-aji:hover,
+.btn-aji:focus {
+    background-color: #cf9013;
+    color: var(--tinta);
+}
+
+.btn-pino {
+    background-color: var(--pino);
+    color: var(--crema);
+    font-weight: 600;
+    border: none;
+}
+
+.btn-pino:hover,
+.btn-pino:focus {
+    background-color: #1f3a2e;
+    color: var(--crema);
+}
