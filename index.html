@@ -1,47 +1,274 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumaq · Cocina peruana y delivery en Huancayo</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="Sabor Express - Restaurante y servicio de delivery con menú, pedidos y reservas."
-    >
+    <!-- Meta etiquetas SEO -->
 
     <meta
-        name="keywords"
-        content="restaurante, delivery, comida, menú, pedidos, reservas"
-    >
+      name="description"
+      content="Sumaq: restaurante de cocina peruana casera en Huancayo. Reserva tu mesa o pide delivery de lomo saltado, ají de gallina y ceviche. Sabor de casa a domicilio."
+    />
 
-    <meta name="author" content="Torres-Ambrosio y Ramos-Tacza">
+    <meta
+      name="keywords"
+      content="restaurante Huancayo, delivery comida peruana, reservas restaurante, lomo saltado, ceviche, menú del día, Sumaq"
+    />
 
-    <meta name="robots" content="index, follow">
+    <meta
+      name="author"
+      content="Ramos Tacza Camilda y Torres Ambrosio Katherine Medally - Facultad de Ingeniería de Sistemas, UNCP"
+    />
 
-    <title>Sabor Express | Restaurante & Delivery</title>
+    <meta name="robots" content="index, follow" />
 
-    <!-- Bootstrap 5.3.3 CSS -->
+    <!-- Tipografías (vía <link>, no @import) -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- Tailwind CSS Play CDN -->
+    <!-- Bootstrap 5.3.3 (CSS) -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+
+    <!-- Tailwind CSS (Play CDN, solo para desarrollo) -->
+
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- CSS propio -->
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-
-    <h1>Bienvenido a Sabor Express</h1>
-
-    <!-- Bootstrap 5.3.3 JS -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false,
+        },
+        theme: {
+          extend: {
+            colors: {
+              pino: "#14261F", // verde andino profundo
+              crema: "#FBF6EC", // fondo cálido
+              aji: "#E4A11B", // amarillo ají (acento)
+              rocoto: "#B4321E", // rojo rocoto
+              tinta: "#23201A", // texto
+            },
+          },
+        },
+      };
     </script>
+  </head>
 
-</body>
+  <body>
+    <!-- ===== Paso 2: Navbar Responsivo (Bootstrap + toque Tailwind) ===== -->
+
+    <!-- Utilidades Tailwind: shadow-lg (sombra), py-3 (espaciado), backdrop-blur (desenfoque) -->
+
+    <nav
+      class="navbar navbar-expand-lg sticky-top shadow-lg py-3 backdrop-blur"
+      style="background-color: rgba(251, 246, 236, 0.85)"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand font-display fw-bold d-flex align-items-center gap-2"
+          href="#inicio"
+          style="color: var(--pino)"
+        >
+          <span aria-hidden="true">🍽️</span> Sumaq
+        </a>
+
+        <!-- Botón hamburguesa: funciona solo con el JS de Bootstrap -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuPrincipal"
+          aria-controls="menuPrincipal"
+          aria-expanded="false"
+          aria-label="Abrir menú de navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul
+            class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1"
+          >
+            <li class="nav-item">
+              <a class="nav-link link-sumaq" href="#inicio"> Inicio </a>
+            </li>
+
+            <!-- Menú desplegable (dropdown) -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link link-sumaq dropdown-toggle"
+                href="#menu"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Menú
+
+                <!-- Badge de notificación "Nuevo" -->
+                <span
+                  class="badge rounded-pill align-middle"
+                  style="background-color: var(--rocoto)"
+                >
+                  Nuevo
+                </span>
+              </a>
+
+              <ul class="dropdown-menu shadow-lg rounded-xl">
+                <li>
+                  <a class="dropdown-item" href="#menu"> Entradas </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#menu"> Platos de fondo </a>
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#menu"> Postres </a>
+                </li>
+
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#menu">
+                    Bebidas y refrescos
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link link-sumaq" href="#reservas"> Reservas </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link link-sumaq" href="#reservas"> Delivery </a>
+            </li>
+
+            <!-- Botón de pedidos con badge de notificación (contador de carrito) -->
+            <li class="nav-item ms-lg-2">
+              <a
+                class="btn btn-pino position-relative rounded-pill px-3"
+                href="#menu"
+              >
+                Mi pedido
+
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                  style="background-color: var(--aji); color: var(--tinta)"
+                >
+                  3
+
+                  <span class="visually-hidden"> platos en tu pedido </span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ===== Paso 3: Hero Section (tipografía fluida + composición) ===== -->
+
+    <!-- Tailwind: bg-gradient-to-r para el fondo, max-w-3xl y text-balance para el texto -->
+
+    <header
+      id="inicio"
+      class="bg-gradient-to-r from-pino to-[#1f3a2e] text-white"
+    >
+      <div class="container py-5">
+        <div class="row align-items-center g-5 py-lg-4">
+          <div class="col-lg-7">
+            <span
+              class="badge rounded-pill mb-3 px-3 py-2"
+              style="background-color: var(--aji); color: var(--tinta)"
+            >
+              Cocina de casa · Delivery en 40 min
+            </span>
+
+            <!-- display-3 = tipografía fluida de Bootstrap; text-balance = mejor reparto de líneas -->
+            <h1 class="display-3 fw-bold text-balance mb-3 font-display">
+              Sabores de casa, servidos a tu puerta
+            </h1>
+
+            <!-- lead de Bootstrap + max-w-3xl de Tailwind para limitar el ancho de lectura -->
+            <p class="lead max-w-3xl text-balance mb-4" style="color: #e9e3d5">
+              Platos peruanos preparados al momento con ingredientes frescos del
+              valle. Reserva tu mesa o pide delivery: el mismo sabor, esté donde
+              estés.
+            </p>
+
+            <!-- d-flex + gap-3: layout de los botones (Call to Action) -->
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#menu" class="btn btn-aji btn-lg rounded-pill px-4">
+                Ver el menú
+              </a>
+
+              <a
+                href="#reservas"
+                class="btn btn-outline-light btn-lg rounded-pill px-4"
+              >
+                Reservar mesa
+              </a>
+            </div>
+
+            <div class="d-flex flex-wrap gap-4 mt-4" style="color: #cfd8cf">
+              <div>
+                <strong class="fs-4 font-display d-block"> +120 </strong>
+                platos preparados al día
+              </div>
+
+              <div>
+                <strong class="fs-4 font-display d-block"> 4.8★ </strong>
+                valoración de clientes
+              </div>
+
+              <div>
+                <strong class="fs-4 font-display d-block"> 7 días </strong>
+                abiertos a la semana
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <!-- Imagen principal del Hero -->
+            <div
+              class="mx-auto max-w-3xl rounded-circle shadow-lg overflow-hidden"
+              style="max-width: 380px; aspect-ratio: 1 / 1"
+            >
+              <img
+                src="https://streetartlatam.s3.amazonaws.com/production/medium_FOTO_COMIDA_PERUANA_af90c8bbf9.jpg"
+                alt="Comida peruana tradicional"
+                class="w-100 h-100"
+                style="object-fit: cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Bootstrap 5.3.3 (JS bundle: incluye Popper para dropdown y navbar) -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
