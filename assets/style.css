@@ -22,7 +22,7 @@ h3,
 }
 
 /* Panel decorativo del hero: un "plato" hecho con CSS */
-.plato {
+/* .plato {
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     background:
@@ -36,7 +36,7 @@ h3,
     display: grid;
     place-items: center;
     box-shadow: 0 30px 60px -25px rgba(20, 38, 31, .55);
-}
+} */
 
 .plato span {
     font-size: clamp(3rem, 12vw, 7rem);
