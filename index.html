@@ -432,7 +432,21 @@
       crossorigin="anonymous"
     ></script>
 
-
+    <script>
+      (() => {
+        "use strict";
+        const formularios = document.querySelectorAll(".needs-validation");
+        Array.from(formularios).forEach((form) => {
+          form.addEventListener("submit", (event) => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add("was-validated");
+          });
+        });
+      })();
+    </script>
     
   </body>
 </html>
