@@ -21,23 +21,6 @@ h3,
     font-family: 'Fraunces', Georgia, serif;
 }
 
-/* Panel decorativo del hero: un "plato" hecho con CSS */
-/* .plato {
-    aspect-ratio: 1 / 1;
-    border-radius: 50%;
-    background:
-        radial-gradient(
-            circle at 50% 42%,
-            #fff 0 42%,
-            #f0e7d4 42% 58%,
-            #e7dcc3 58% 60%,
-            transparent 60%
-        );
-    display: grid;
-    place-items: center;
-    box-shadow: 0 30px 60px -25px rgba(20, 38, 31, .55);
-} */
-
 .plato span {
     font-size: clamp(3rem, 12vw, 7rem);
     line-height: 1;
