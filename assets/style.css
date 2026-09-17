@@ -88,3 +88,11 @@ button:focus-visible,
     background-color: #1f3a2e;
     color: var(--crema);
 }
+
+.navbar-collapse.collapse {
+    visibility: visible !important;
+}
+
+.navbar-collapse.collapsing {
+    visibility: visible !important;
+}
