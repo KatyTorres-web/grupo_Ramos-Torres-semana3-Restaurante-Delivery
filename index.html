@@ -265,10 +265,188 @@
     </header>
     <!-- Bootstrap 5.3.3 (JS bundle: incluye Popper para dropdown y navbar) -->
 
+    <main>
+
+      <!-- ===== Paso 4: Grid de Tarjetas (grilla de 12 columnas + estados) ===== -->
+      <section id="menu" class="py-5">
+        <div class="container">
+          <div class="text-center mb-5 max-w-3xl mx-auto">
+            <h2 class="display-5 fw-bold font-display mb-2">Nuestros platos estrella</h2>
+            <p class="text-balance" style="color: #5a5346">
+              Los favoritos de la casa, disponibles para comer aquí o pedir a domicilio.
+            </p>
+          </div>
+
+          <!-- Bootstrap: container > row > col-md-4 (3 tarjetas en la grilla de 12) -->
+          <div class="row g-4">
+            <!-- Tarjeta 1 -->
+            <div class="col-md-4">
+              <!-- Tailwind: rounded-xl, shadow-lg, hover:scale-105 + transition-transform -->
+              <article class="card h-100 border-0 rounded-xl shadow-lg transition-transform hover:scale-105">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgwGdW1gVk1k84tNL_we42q1WHLyusUT00IJXSHA439A&s=10" alt="Plato de lomo saltado con papas fritas y arroz"
+     class="w-100 rounded-t-xl" style="height: 190px; object-fit: cover" loading="lazy" />
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <h3 class="h5 card-title font-display mb-1">Lomo saltado</h3>
+                    <span class="badge rounded-pill" style="background-color: var(--pino)">S/ 28</span>
+                  </div>
+                  <p class="card-text" style="color: #5a5346">
+                    Salteado de res al wok con cebolla, tomate y papas fritas, arroz graneado.
+                  </p>
+                  <button type="button" class="btn btn-aji rounded-pill px-3">Agregar al pedido</button>
+                </div>
+              </article>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="col-md-4">
+              <article class="card h-100 border-0 rounded-xl shadow-lg transition-transform hover:scale-105">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUrK33Db_oB2N0hAn2oLIt_0l7NqZ5c18WUG7KCxSLvA&s=10" alt="Ají de gallina servido con papa y huevo"
+     class="w-100 rounded-t-xl" style="height: 190px; object-fit: cover" loading="lazy" />
+
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <h3 class="h5 card-title font-display mb-1">Ají de gallina</h3>
+                    <span class="badge rounded-pill" style="background-color: var(--pino)">S/ 24</span>
+                  </div>
+                  <p class="card-text" style="color: #5a5346">
+                    Crema suave de ají amarillo con gallina deshilachada, papa y huevo.
+                  </p>
+                  <button type="button" class="btn btn-aji rounded-pill px-3">Agregar al pedido</button>
+                </div>
+              </article>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="col-md-4">
+              <article class="card h-100 border-0 rounded-xl shadow-lg transition-transform hover:scale-105">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8Zp48yJ04ca2PL-5OqviUOm8zTXWSOL7hxdCmFUX-mg&s=10" alt="Ceviche clásico con cebolla morada, camote y choclo"
+     class="w-100 rounded-t-xl" style="height: 190px; object-fit: cover" loading="lazy" />
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <h3 class="h5 card-title font-display mb-1">Ceviche clásico</h3>
+                    <span class="badge rounded-pill" style="background-color: var(--pino)">S/ 32</span>
+                  </div>
+                  <p class="card-text" style="color: #5a5346">
+                    Pescado fresco en leche de tigre, cebolla morada, camote y choclo.
+                  </p>
+                  <button type="button" class="btn btn-aji rounded-pill px-3">Agregar al pedido</button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Paso 5: Formulario con validación UI y accesibilidad ===== -->
+      <section id="reservas" class="py-5" style="background-color: #f2ead9">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="text-center mb-4 max-w-3xl mx-auto">
+                <h2 class="display-5 fw-bold font-display mb-2">Reserva tu mesa</h2>
+                <p class="text-balance" style="color: #5a5346">
+                  Completa el formulario y confirmamos tu reserva por WhatsApp.
+                </p>
+              </div>
+
+              <!-- needs-validation + novalidate: activa los estados is-invalid / is-valid de Bootstrap -->
+              <form class="needs-validation card border-0 rounded-xl shadow-lg p-4 p-md-5" style="background-color: #fff" novalidate>
+                <div class="row g-3">
+                  <!-- Nombre -->
+                  <div class="col-md-6">
+                    <label for="nombre" class="form-label fw-semibold">Nombre completo</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required aria-describedby="errNombre" placeholder="Tu nombre" />
+                    <div id="errNombre" class="invalid-feedback">Escribe tu nombre para la reserva.</div>
+                    <div class="valid-feedback">¡Listo!</div>
+                  </div>
+
+                  <!-- Correo: validación avanzada solo con CSS usando la clase peer de Tailwind -->
+                  <div class="col-md-6">
+                    <label for="correo" class="form-label fw-semibold">Correo electrónico</label>
+                    <input type="email" class="form-control peer" id="correo" name="correo" required aria-describedby="errCorreo pistaCorreo" placeholder="tucorreo@ejemplo.com" />
+                    <p class="hidden peer-[:not(:placeholder-shown):invalid]:block text-sm mt-1 mb-0" id="pistaCorreo" style="color: var(--rocoto)">
+                      El formato del correo aún no es válido.
+                    </p>
+                    <div id="errCorreo" class="invalid-feedback">Ingresa un correo válido.</div>
+                  </div>
+
+                  <!-- Teléfono -->
+                  <div class="col-md-6">
+                    <label for="telefono" class="form-label fw-semibold">N.º Teléfono</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" required pattern="[0-9]{9}" aria-describedby="errTelefono" placeholder="9 dígitos" inputmode="numeric" />
+                    <div id="errTelefono" class="invalid-feedback">Ingresa un número de 9 dígitos.</div>
+                  </div>
+
+                  <!-- N.º de personas -->
+                  <div class="col-md-6">
+                    <label for="personas" class="form-label fw-semibold">N.º de personas</label>
+                    <select class="form-select" id="personas" name="personas" required aria-describedby="errPersonas">
+                      <option value="">Selecciona…</option>
+                      <option>1 a 2</option>
+                      <option>3 a 4</option>
+                      <option>5 a 6</option>
+                      <option>7 o más</option>
+                    </select>
+                    <div id="errPersonas" class="invalid-feedback">Indica cuántas personas asistirán.</div>
+                  </div>
+
+                  <!-- Fecha -->
+                  <div class="col-md-6">
+                    <label for="fecha" class="form-label fw-semibold">Fecha</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" required aria-describedby="errFecha" />
+                    <div id="errFecha" class="invalid-feedback">Elige la fecha de tu reserva.</div>
+                  </div>
+
+                  <!-- Hora -->
+                  <div class="col-md-6">
+                    <label for="hora" class="form-label fw-semibold">Hora</label>
+                    <input type="time" class="form-control" id="hora" name="hora" required aria-describedby="errHora" />
+                    <div id="errHora" class="invalid-feedback">Elige la hora de tu reserva.</div>
+                  </div>
+
+                  <!-- Comentarios -->
+                  <div class="col-12">
+                    <label for="comentarios" class="form-label fw-semibold">Comentarios (opcional)</label>
+                    <textarea class="form-control" id="comentarios" name="comentarios" rows="3" aria-describedby="ayudaComentarios" placeholder="Alergias, preferencias, ubicación de la mesa…"></textarea>
+                    <div id="ayudaComentarios" class="form-text">Cuéntanos si tienes alguna preferencia.</div>
+                  </div>
+
+                  <div class="col-12 d-flex flex-wrap gap-3 align-items-center">
+                    <button type="submit" class="btn btn-aji btn-lg rounded-pill px-4">Confirmar reserva</button>
+                    <span class="form-text mb-0">Te contactaremos para confirmar la disponibilidad.</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      (() => {
+        "use strict";
+        const formularios = document.querySelectorAll(".needs-validation");
+        Array.from(formularios).forEach((form) => {
+          form.addEventListener("submit", (event) => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add("was-validated");
+          });
+        });
+      })();
+    </script>
+    
   </body>
 </html>
